@@ -50,10 +50,11 @@
     "through2": "^4.0.2"
   },
   "buildconfigs": {
-    "proxy": "http://gitworkshop_jugn.kick"
+    "proxy": "http://gitwdemo.kick"
   },
   "replacejson": {
     "stage_name": "Stage Github Workshop",
+    "[TOBIAS]": "Geiler Typ",
     "live_name": "Live Github Workshop"
   }
 }

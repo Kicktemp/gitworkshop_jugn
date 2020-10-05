@@ -152,7 +152,7 @@ else
 		<header class="header" role="banner">
 			<div class="header-inner clearfix">
 				<a class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
-					[ENVNAME]
+					[ENVNAME] - [TOBIAS]
 					<?php if ($this->params->get('sitedescription')) : ?>
 						<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription'), ENT_COMPAT, 'UTF-8') . '</div>'; ?>
 					<?php endif; ?>

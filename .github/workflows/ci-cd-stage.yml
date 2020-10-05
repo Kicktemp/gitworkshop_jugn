@@ -1,0 +1,42 @@
+name: CI/CD Stage
+
+on:
+  push:
+    branches:
+      - stage
+
+jobs:
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@master
+
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+      - run: npm install
+      - run: npm run build --if-present
+
+      - name: Deploy with rsync
+        uses: Kicktemp/rsync@master
+        env:
+          HOST_FINGERPRINT: ${{ secrets.HOST_FINGERPRINT }}
+          HOST_IP: ${{ secrets.HOST_IP }}
+          HOST_NAME: ${{ secrets.HOST_NAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
+        with:
+          args: $GITHUB_WORKSPACE/dist/ ${{ secrets.HOST_USER }}@$HOST_NAME:${{ secrets.DEPLOY_PATH_STAGE }}
+
+      - name: Slack Success Notify
+        if: success()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: pullreminders/slack-action@master
+        with:
+          args: '{\"channel\":\"CN82V0E56\",\"text\":\"Build and Publish Site Success\"}'

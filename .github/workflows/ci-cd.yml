@@ -39,4 +39,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"CN82V0E56\",\"text\":\"Build and Publish Site Success\"}'
+          args: '{\"channel\":\"C01BZKTQDNE\",\"text\":\"Build and Publish Site Success\"}'

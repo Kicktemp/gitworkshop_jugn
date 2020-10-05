@@ -16,6 +16,7 @@
     "downloadjoomla": "sh ./scripts/joomla.sh",
     "watch": "cross-env NODE_ENV=development gulp watch",
     "build": "cross-env NODE_ENV=production gulp build",
+    "build:stage": "cross-env NODE_ENV=stage gulp build",
     "copy": "cross-env NODE_ENV=production gulp copyFiles"
   },
   "contributors": [
@@ -33,11 +34,7 @@
     "url": "https://github.com/Kicktemp/gitworkshop_jugn/issues"
   },
   "homepage": "https://github.com/Kicktemp/gitworkshop_jugn#readme",
-  "devDependencies": {},
-  "buildconfigs": {
-    "proxy": "http://gitworkshop_jugn.kick"
-  },
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
@@ -50,5 +47,12 @@
     "gulp-util": "^3.0.8",
     "node-notifier": "^8.0.0",
     "through2": "^4.0.2"
+  },
+  "buildconfigs": {
+    "proxy": "http://gitworkshop_jugn.kick"
+  },
+  "replacejson": {
+    "stage_name": "Stage Github Workshop",
+    "live_name": "Live Github Workshop"
   }
 }

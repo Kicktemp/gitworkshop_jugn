@@ -47,7 +47,7 @@ export const config = {
 
 export const isProd = process.env.NODE_ENV === 'production';
 
-export const stringsreplace = extend({}, {"[VERSION]": pjson.version} , pjson.replacejson);
+export const stringsreplace = extend({}, {"[VERSION]": pjson.version, "[ENVNAME]": (isProd) ? pjson.replacejson.live_name : pjson.replacejson.stage_name} , pjson.replacejson);
 
 function extend(target) {
   var sources = [].slice.call(arguments, 1);

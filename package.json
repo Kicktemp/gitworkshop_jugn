@@ -45,6 +45,7 @@
     "gulp-changed": "^4.0.2",
     "gulp-if": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "lodash.template": ">=4.5.0",
     "node-notifier": "^8.0.0",
     "through2": "^4.0.2"
   },
